@@ -69,4 +69,19 @@ typedef struct {
   i32 length;
 } String;
 
+// 下記はC23のみの類だ
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+typedef unsigned _BitInt(4) uint4_t;
+typedef signed _BitInt(4) int4_t;
+typedef unsigned _BitInt(4) u4;
+typedef signed _BitInt(4) i4;
+
+#ifndef __SIZEOF_INT128__
+typedef unsigned _BitInt(128) uint128_t;
+typedef signed _BitInt(128) int128_t;
+typedef unsigned _BitInt(128) u128;
+typedef signed _BitInt(128) i128;
+#endif
+#endif
+
 #endif // __EXSTDTYPE_H
